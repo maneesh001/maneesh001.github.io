@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/semantic.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="js/semantic.js"></script>
+    <link href='http://cdn.leafletjs.com/leaflet/v1.3.1/leaflet.css' rel='stylesheet' />
+    <script src='http://cdn.leafletjs.com/leaflet/v1.3.1/leaflet.js'></script>
+    <script src="js/leaflet-side-by-side.js"></script>
+  
+</head>
+
+<body>
+    <div>
+        
+        <div class="ui grid" style="margin-left: 20px; padding-bottom: 0px">
+            <div class="four wide column" style="margin-top: 15px;">
+                <!-- <p> -->
+                <div class="ui container">
+                    <h3>Assam Flood Mapping - 2019 </h3> 
+                    <div class="ui justified container">
+                        <div class="ui divider"></div>
+                        <p> The 2019 Brahmaputra Floods, till 16 July, affected a total of 52,59,142 people, 1,63,962.02 hectares of crop area, in 30 districts in the state of Assam. At least 3,024 villages in the affected districts continued to be underwater and 44,08,142 people are hit in Dhemaji, Lakhimpur, Biswanath, Sonitpur district, Darrang, Barpeta, Nalbari, Chirang, Bongaigaon, Kokrajhar, Dhubri, Golaghat, Jorhat, Dibrugarh, Tinsukia, Cachar and Karimganj districts.
+                        </p>
+                        <p>Notably, in this wave of floods, 2400 an endangered species of Indian rhinoceros in Kaziranga National Park were badly affected by the Flood.
+                        </p>
+                    </div>
+                  <div class="ui divider"></div>
+                    
+                    <img src="img/3.jpg" width="100px" onclick="window.open(this.src)">
+                    <img src="img/4.jpg" width="100px" onclick="window.open(this.src)">
+                    <img src="img/5.jpg" width="100px" onclick="window.open(this.src)">
+                    <img src="img/1.jpg" width="100px" onclick="window.open(this.src)">
+                    <img src="img/2.jpg" width="100px" onclick="window.open(this.src)">
+                    <img src="img/6.jpg" width="100px" onclick="window.open(this.src)"> 
+                   
+                    <div class="ui divider"></div>
+                    <p><i>data source : ESA Sentinel 1</i></p>
+                </div>
+                <br> </br>
+                <!-- <div class="ui divider"></div> -->
+                <center>
+                    <div>
+                        
+                    </div>
+                </center>
+                <div><span id="tilestatus"></span></div>
+            </div>
+
+            <div class="twelve wide column" style="padding-right: 0px; padding-bottom: 0px" >
+                
+                <div id="map" style="width:100%; height:100vh;float:left;"></div>
+                <div id="left_text_box"> Pre Flood</div>
+                <div id="right_text_box"> Post Flood</div>
+
+            </div>
+        
+
+
+                
+
+    </div>
+    
+    <script>
+        var mymap = L.map('map').setView([26.2006, 92.9376], 7.5);
+
+    var baselayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 10, minZoom: 4,
+		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(mymap);
+         
+		var stamenLayer = L.tileLayer('//stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png', {
+		attribution:
+		'Map tiles by <a href="http://stamen.com">Stamen Design<\/a>, ' +
+		'<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0<\/a> &mdash; ' +
+		'Map data {attribution.OpenStreetMap}',
+		minZoom: 12,
+		maxZoom: 18
+		}).addTo(mymap);
+    
+    	var Layer1 = L.tileLayer.wms('http://6ef8dbd0ac33.ngrok.io/geoserver/project/wms?', {
+        layers: 'project:Assam_Pre_Flood',
+		format: 'image/png',
+		tiled: true,
+		transparent: true,
+		
+        }).addTo(mymap);
+		
+		var Layer2 = L.tileLayer.wms('http://6ef8dbd0ac33.ngrok.io/geoserver/project/wms?', {
+        layers: 'project:Assam_Post_Flood',
+		format: 'image/png',
+		tiled: true,
+		transparent: true,
+		
+        }).addTo(mymap);
+        
+        
+    L.control.sideBySide(Layer1, Layer2).addTo(mymap);
+    
+
+
+    </script>
+        
+
+</form>
+
+</body>
+
+</html>

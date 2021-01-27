@@ -1,0 +1,26 @@
+#left_text_box {
+    float: left;
+    position: absolute;
+    z-index: 900;
+    background: rgb(52, 186, 235);
+    height: 30px;
+    width: 100px;
+    bottom: 5%;
+    /* left: 0px; */
+    padding: 5px 5px 10px 10px;
+    
+}
+
+#right_text_box {
+    float: right;
+    background: rgb(52, 186, 235);
+    position: absolute;
+    z-index: 900;
+    height: 30px;
+    width: 100px;
+    bottom: 5%;
+    right: 10px;
+    padding: 5px 10px 10px 10px;
+    text-align: right;
+    
+}
