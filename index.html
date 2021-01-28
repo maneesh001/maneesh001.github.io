@@ -47,10 +47,6 @@
                     <div id="right_text_box"> Post Flood</div>
 
             </div>
-        
-
-
-                
 
     </div>
     
@@ -60,8 +56,7 @@
     var baselayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 10, minZoom: 4,
 		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(mymap);
          
-		
-    
+		    
     	var Layer1 = L.tileLayer.wms('http://1539b4dbbee9.ngrok.io/geoserver/project/wms?', {
         layers: 'project:Assam_Pre_Flood',
 		format: 'image/png',
@@ -76,16 +71,12 @@
 		tiled: true,
 		transparent: true,
 		
-        }).addTo(mymap);
-        
+        }).addTo(mymap);       
         
     L.control.sideBySide(Layer1, Layer2).addTo(mymap);
     
-
-
     </script>
         
-
 </form>
 
 </body>
