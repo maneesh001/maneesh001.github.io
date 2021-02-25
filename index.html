@@ -57,7 +57,7 @@
 		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(mymap);
          
 		    
-    	var Layer1 = L.tileLayer.wms('http://1539b4dbbee9.ngrok.io/geoserver/project/wms?', {
+    	var Layer1 = L.tileLayer.wms('https://afe72d7205c0.ngrok.io/geoserver/project/wms?', {
         layers: 'project:Assam_Pre_Flood',
 		format: 'image/png',
 		tiled: true,
@@ -65,7 +65,7 @@
 		
         }).addTo(mymap);
 		
-		var Layer2 = L.tileLayer.wms('http://1539b4dbbee9.ngrok.io/geoserver/project/wms?', {
+		var Layer2 = L.tileLayer.wms('https://afe72d7205c0.ngrok.io/geoserver/project/wms?', {
         layers: 'project:Assam_Post_Flood',
 		format: 'image/png',
 		tiled: true,
